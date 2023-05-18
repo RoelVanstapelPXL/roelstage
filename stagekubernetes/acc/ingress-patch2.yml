@@ -1,0 +1,3 @@
+- op: replace
+  path: /spec/rules/1/host
+  value: acccaddy.roelvanstapelreverseproxy.be

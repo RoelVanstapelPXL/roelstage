@@ -1,0 +1,34 @@
+spec:
+  template:
+    metadata:
+      annotations:
+          ad.datadoghq.com/argocd-application-controller.check_names: |
+            ["openmetrics"]
+          ad.datadoghq.com/argocd-application-controller.init_configs: |
+            [{}]
+          ad.datadoghq.com/argocd-application-controller.instances: |
+            [
+              {
+                "openmetrics_endpoint": "http://argocd-metrics:8082/metrics",
+                "namespace": "argocd-application-metrics",
+                "metrics": [
+                {
+                "argocd_app_info":"argocd_app_info",
+                "argocd_app_k8s_request_total":"argocd_app_k8s_request_total",
+                "argocd_app_labels":"argocd_app_labels",
+                "argocd_app_reconcile":"argocd_app_reconcile",
+                "argocd_app_sync_total":"argocd_app_sync_total",
+                "argocd_cluster_api_resource_objects":"argocd_cluster_api_resource_objects",
+                "argocd_cluster_api_resources":"argocd_cluster_api_resources",
+                "argocd_cluster_cache_age_seconds":"argocd_cluster_cache_age_seconds",
+                "argocd_cluster_connection_status":"argocd_cluster_connection_status",
+                "argocd_cluster_events_total":"argocd_cluster_events_total",
+                "argocd_cluster_info":"argocd_cluster_info",
+                "argocd_kubectl_exec_pending":"argocd_kubectl_exec_pending",
+                "argocd_kubectl_exec_total":"argocd_kubectl_exec_total",
+                "argocd_redis_request_duration":"argocd_redis_request_duration",
+                "argocd_redis_request_total":"argocd_redis_request_total"
+                }
+                ]
+              }
+            ]   

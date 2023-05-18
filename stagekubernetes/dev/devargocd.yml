@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: devargocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/RoelVanstapelPXL/roelstage.git
+    targetRevision: HEAD
+    path: stagekubernetes/dev
+  destination:
+    name: in-cluster
+    namespace: development
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prodargocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/RoelVanstapelPXL/roelstage.git
+    targetRevision: HEAD
+    path: stagekubernetes/acc
+  destination:
+    name: in-cluster
+    namespace: acceptation
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

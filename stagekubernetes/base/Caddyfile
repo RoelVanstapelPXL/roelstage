@@ -1,0 +1,6 @@
+prodcaddy.roelvanstapelreverseproxy.be:443 {
+  tls {
+    dns cloudflare ChMZQIClOInAIRBwy47_PTjT7u6z2nlm_vezAWlm
+  }
+  reverse_proxy whoami:443 
+}

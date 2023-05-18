@@ -1,0 +1,6 @@
+acccaddy.roelvanstapelreverseproxy.be {
+  tls {
+    dns cloudflare oOOHEt5AJG1BB2AmTQMZWToVE508YHU3phMuYPd7
+  }
+  reverse_proxy jenkins-service:8080
+}

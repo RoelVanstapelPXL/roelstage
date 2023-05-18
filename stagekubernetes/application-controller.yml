@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+# (...)
+metadata:
+  name: 'application-controller'
+  annotations:
+    ad.datadoghq.com/argocd-application-controller.checks: |
+      {
+        "argocd": {
+          "init_config": {},
+          "instances": [
+            {
+              "app_controller_endpoint": "http://argocd-metrics:8082/metrics"
+            }
+          ]
+        }
+      }
+    # (...)
+spec:
+  containers:
+    - name: 'argocd-application-controller'
+      image: argoproj/argocd-application-controller

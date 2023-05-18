@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: acceptation
+  name: caddy-reverse-proxy
+spec:
+  selector:
+    matchLabels:
+      app: caddy-reverse-proxy
+  template:
+    metadata:
+      labels:
+        app: caddy-reverse-proxy
+    spec:
+      containers:
+        - name: caddy-reverse-proxy
+          image: roelvanstapelpxl/caddydns:latest
+          ports:
+            - name: https
+              containerPort: 443
+          volumeMounts:
+            - name: caddy-config
+              mountPath: /etc/caddy
+      volumes:
+      - name: caddy-config
+        configMap:
+          name: caddy-config
