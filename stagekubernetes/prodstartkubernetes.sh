@@ -15,6 +15,6 @@ sed -i "s|arn:aws:acm:.*|$CERTIFICATE_ARN|g" 03-ingress.yml
 cd ../prod
 kubectl apply -k .
 cd ..
-helm install datadogagent -f values.yaml --set datadog.apiKey=35f12891aa913acadf713470cac5c4dd datadog/datadog --set targetSystem=linux
+helm install datadogagent -f values.yaml --set apikey datadog/datadog --set targetSystem=linux
 sleep 60
 aws elbv2 describe-load-balancers --query 'LoadBalancers[0].[DNSName]' --output text > albnameprod
